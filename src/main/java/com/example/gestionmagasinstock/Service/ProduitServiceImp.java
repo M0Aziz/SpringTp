@@ -17,12 +17,12 @@ public class ProduitServiceImp implements ProduitService {
 
     @Autowired
     private ProduitRepository produitRepository;
-
     @Autowired
     private StockRepository stockRepository;
 
-    @Autowired
-    private CategorieProduitRepository categorieProduitRepository;
+
+
+
 
     @Override
     public List<Produit> retrieveAllProduits() {
@@ -46,5 +46,16 @@ public class ProduitServiceImp implements ProduitService {
     @Override
     public Produit retrieveProduit(Long id) {
         return produitRepository.findById(id).get();
+    }
+
+    @Override
+    public void assignProduitToStock(Long idProduit, Long idStock) {
+        Stock stock = stockRepository.findById(idStock).get();
+        Produit prod = produitRepository.findById(idProduit).get();
+
+        prod.setStock(stock);
+        produitRepository.save(prod);
+
+
     }
 }

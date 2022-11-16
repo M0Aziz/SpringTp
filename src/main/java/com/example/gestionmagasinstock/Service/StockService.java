@@ -16,4 +16,6 @@ public interface StockService {
     Stock retrieveStock(Long id);
 
     void removeStock(Long id);
+
+    
 }

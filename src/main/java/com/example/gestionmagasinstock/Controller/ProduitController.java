@@ -30,8 +30,12 @@ public class ProduitController {
     @GetMapping("/findproduit")
     Produit retrieveProduit(Long id) {
         return produitService.retrieveProduit(id);
-        
-    }
 
+    }
+    @GetMapping("/assignproduitstock")
+    Produit assignProduitToStock(Long idProduit, Long idStock) {
+ produitService.assignProduitToStock(idProduit,idStock);
+        return null;
+    }
 
 }
